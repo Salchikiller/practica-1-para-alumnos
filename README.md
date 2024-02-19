@@ -18,7 +18,7 @@ Luego, clona el repositorio usando el siguiente comando:
 git clone 'https://github.com/Salchikiller/-Practica_1.git'
 ```
 
-Reemplaza `<ttps://github.com/Salchikiller/-Practica_1.git` con la URL del repositorio.
+
 
 ### 2. Navegar al Directorio del Repositorio
 
