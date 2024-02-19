@@ -1,0 +1,18 @@
+# Directorios generados automáticamente
+bin/
+target/
+
+# Archivos de configuración de IDE
+.idea/
+*.iml
+
+# Archivos de compilación y ejecución
+*.class
+*.jar
+
+# Archivos de respaldo
+*~
+
+# Archivos de configuración específicos del sistema operativo
+.DS_Store
+Thumbs.db
