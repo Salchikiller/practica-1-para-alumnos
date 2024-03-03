@@ -1,5 +1,7 @@
 package mates;
 
+// importar generador de números aleatorios desde java .uitl libarys
+
 import java.util.Random;
 
 public class Matematicas {
@@ -11,37 +13,29 @@ public class Matematicas {
      * @param pasos El número de pasos para generar puntos.
      * @return Una aproximación del número Pi.
      */
-    public static double generarPiRecursivamente(long pasos) {
-        // Se llama al método auxiliar para generar la aproximación recursivamente
-        Random rand = new Random(); // Se crea una instancia de Random
-        return generarPiRecursivamenteWorker(pasos, pasos, 0, rand);
-    }
-    
-    /**
-     * Método auxiliar que genera recursivamente una aproximación de Pi mediante el método de Montecarlo.
-     * 
-     * @param pasos El número total de pasos.
-     * @param remainingPasos El número de pasos restantes en la recursión.
-     * @param puntosDentroCirculo El número de puntos dentro del círculo.
-     * @param rand La instancia de Random para generar números aleatorios.
-     * @return Una aproximación del número Pi.
-     */
-    private static double generarPiRecursivamenteWorker(long pasos, long remainingPasos, int puntosDentroCirculo, Random rand) {
-        // Si no quedan pasos restantes, se calcula la aproximación de Pi y se devuelve
-        if (remainingPasos == 0) {
-            return 4.0 * ((double) puntosDentroCirculo / pasos);
+    public static double generarNumeroPiIterativo(long pasos){
+
+        // init Radom instancia
+        Random rand = new Random(); 
+
+        // crear contador para realizar un seguimiento de los puntos internos
+        int points_inside_circle = 0;
+
+        // crear bucle para crear tantas coordenadas x e y aleatorias como lo soliciten los "pasos" 
+        for (int i = 0; i < pasos; i++) {
+            double x = rand.nextDouble();
+            double y = rand.nextDouble();
+
+            //valida si xey están dentro o fuera de las bases en los cálculos de monte carlo
+            if (x * x + y * y <= 1){
+                points_inside_circle ++;
+            }
         }
-    
-        // Se generan coordenadas aleatorias x e y
-        double x = rand.nextDouble();
-        double y = rand.nextDouble();
-    
-        // Si el punto está dentro del círculo, se incrementa el contador de puntos dentro del círculo
-        if (x * x + y * y <= 1) {
-            puntosDentroCirculo++;
-        }
-    
-        // Se realiza una llamada recursiva con un paso menos
-        return generarPiRecursivamenteWorker(pasos, remainingPasos - 1, puntosDentroCirculo, rand);
+
+        // calcula el pastel aproximado multiplicando por el resto de los cuadrantes
+        double aprox_pi= 4.0*((double)points_inside_circle/pasos);
+
+        // devuelve el valor de pi aporxcimado
+        return aprox_pi;
     }
 }
