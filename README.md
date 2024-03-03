@@ -60,9 +60,9 @@ Finalmente, vamos a ejecutar el programa para obtener una estimación de Pi. Ree
 java -jar src/pi.jar x
 ```
 
-Por ejemplo, para generar 10000 puntos y estimar Pi, ejecuta:
+Por ejemplo, para generar 1000 puntos y estimar Pi, ejecuta:
 
 ```bash
-java -jar src/pi.jar 10000
+java -jar src/pi.jar 5000
 ```
 
